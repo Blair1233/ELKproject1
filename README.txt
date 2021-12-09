@@ -88,4 +88,8 @@ SSH into the control node and follow the steps below:
 - Update the hosts file to include the IP addresses of the specific machines you want affected by the .yml playbook.
 - Run the playbook, and navigate to 168.61.166.199(ELK server machine) to check that the installation worked as expected.
 
-
+How to set up the SSH into the control node.
+- When you set up your ELK stack server, you will be promted to add a SSH key. You will select add existsing SSH key, then copy and paste your public SSH key from the ~/.ssh/id_rsa.pub file on your command line inside of your ansible machine. Then you will have a SSH link between your ELK stack, and your ansible machine.
+- Inside of your ansible machine, nano out your /etc/ansible/hosts file. Then add your web servers IP address under your [webservers] host name. After your host name you are going to attach a python language that is downloaded in your .yml script. The line should look something like 10.0.0.5 ansible_python_interpreter=/usr/bin/python3
+- Run the ansible all -m ping in your ansible docker container. It will tell you if you correctly attached your webservers to your ansible container.
+- After that, you will just run your playbook with the ansible-playbook (enterplaybooknamehere.yml) command. This should run your yaml playbook on all attached servers under the specified host group.
