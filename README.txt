@@ -29,14 +29,14 @@ Integrating an ELK server allows users to easily monitor the vulnerable VMs for 
 - What does Metricbeat record?_Logs internal files that have recently been changed.
 
 The configuration details of each machine may be found below.
-_Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
+Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
 
 | Name     | Function | IP Address    | Operating System |
 |----------|----------|---------------|------------------|
 | Jump Box | Gateway  | 10.0.0.1      | Linux            |
-| Web-1    | server   | 10.0.0.4      |                  |
-| Web-2    | server   | 10.0.0.5      |                  |
-| ELK      | ELK stack| 168.61.166.199|                  |
+| Web-1    | server   | 10.0.0.4      | Linux            |
+| Web-2    | server   | 10.0.0.5      | Linux            |
+| ELK      | ELK stack| 168.61.166.199| Linux            |
 
 ### Access Policies
 
@@ -46,15 +46,16 @@ Only the Jumpbox machine can accept connections from the Internet. Access to thi
 - 73.65.239.100
 
 Machines within the network can only be accessed by ssh.
-- Which machine did you allow to access your ELK VM? What was its IP address?_My home machine. 73.65.239.100
+- Which machine did you allow to access your ELK VM? What was its IP address? My home machine. 73.65.239.100
 
 A summary of the access policies in place can be found in the table below.
 
-| Name     | Publicly Accessible | Allowed IP Addresses |
-|----------|---------------------|----------------------|
-| Jump Box | Yes                 | 73.65.239.100        |
-|          |                     |                      |
-|          |                     |                      |
+| Name      | Publicly Accessible | Allowed IP Addresses |
+|-----------|---------------------|----------------------|
+| Jump Box  | Yes                 | 73.65.239.100        |
+| Web-1     | No                  | 10.0.0.5             |
+| Web-2     | No                  | 10.0.0.6             |
+| ELK stack | Yes                 | 168.61.166.199       |
 
 ### Elk Configuration
 
@@ -85,8 +86,8 @@ These Beats allow us to collect the following information from each machine:
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the .yml file to nano.
+- Copy the public SSH key from the ansible machine to the destination server.
 - Update the hosts file to include the IP addresses of the specific machines you want affected by the .yml playbook.
-- Run the playbook, and navigate to 168.61.166.199:5601/app/kibana to check that the installation worked as expected.
+- Run the playbook, and navigate to 168.61.166.199(ELK server machine) to check that the installation worked as expected.
 
 
