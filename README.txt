@@ -41,16 +41,16 @@ Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_table
 The machines on the internal network are not exposed to the public Internet. 
 
 Only the Jumpbox machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
-- 73.65.239.100
+- Your home IP address.
 
 Machines within the network can only be accessed by ssh.
-- Which machine did you allow to access your ELK VM? What was its IP address? My home machine. 73.65.239.100
+- Which machine did you allow to access your ELK VM? What was its IP address? My home machine. Your home IP address.
 
 A summary of the access policies in place can be found in the table below.
 
 | Name      | Publicly Accessible | Allowed IP Addresses |
 |-----------|---------------------|----------------------|
-| Jump Box  | Yes                 | 73.65.239.100        |
+| Jump Box  | Yes                 | Your home IP         |
 | Web-1     | No                  | 10.0.0.5             |
 | Web-2     | No                  | 10.0.0.6             |
 | ELK stack | Yes                 | 168.61.166.199       |
